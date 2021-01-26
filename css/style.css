@@ -1,0 +1,680 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ヘッダー */
+
+header {
+    height: 280px;
+    background: gray;
+}
+
+header nav {
+    width: 95%;
+    height: 45px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 50px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav #search {
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+header nav #search:hover {
+    color: #82be28;
+}
+
+header nav .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header nav #menu {
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+header nav #menu:hover {
+    color: #82be28;
+}
+
+header .text {
+    color: #fff;
+    margin-top: 50px;
+    text-align: center;
+}
+
+header .text h1 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+header .text h2 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header .career_nav {
+    display: none;
+}
+
+/* 検索ボタン用モーダル */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    z-index: 100;
+}
+
+.search-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-overlay #search-close {
+    position: absolute;
+    top: 40px;
+    left: 35px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-overlay .text {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.search-overlay .text  h1 {
+    font-weight: bold;
+    font-size: 40px;
+
+}
+
+.search-overlay .text  h2 {
+    font-size: 20px;
+}
+
+.search-overlay .search_box {
+    display: flex;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.search-overlay .search_box input[type="text"] {
+    flex: 1;
+    font-size: 15px;
+    padding: 5px;
+    margin: 0 20px;
+    margin-bottom: 2px;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+
+.search-overlay .search_box .search {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* メニューボタン用モーダル */
+.menu-overlay {
+    position: fixed;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: rgb(170, 170, 170);
+    text-align: center;
+    overflow-y: scroll;
+    /* opacity: 0; */
+    /* 初期位置は右にずらしておく(結構幅取らないと見えてしまうかも) */
+    transform: translateX(900px);
+    pointer-events: none;
+    transition: opacity, transform .5s;
+    z-index: 100;
+}
+
+.menu-overlay.show{
+    /* opacity: 1; */
+    pointer-events: auto;
+    transform: none;
+}
+
+.menu-wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    z-index: 2;
+}
+
+.menu-wrap.show{
+    opacity: 0.8;
+    pointer-events: auto;
+}
+
+
+.menu-overlay #menu-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.menu-overlay .text {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    opacity: 1;
+}
+
+.menu-overlay .text h1 {
+    font-size: 25px;
+}
+
+.menu-overlay .text h2 {
+    font-size: 15px;
+}
+
+.menu-overlay nav ul {
+    text-align: left;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: opacity .8s, transform .8s;
+}
+
+.menu-overlay.show nav ul {
+    transform: none;
+    opacity: 1;
+}
+
+.menu-overlay nav ul li {
+    padding: 20px 10px;
+    font-size: 15px;
+    border-top: 1px white solid;
+}
+
+/* メインコンテンツ */
+main {
+    flex: 1;
+}
+/* 採用情報 */
+.career_info .item_list .item {
+    position: relative;
+}
+
+.career_info .item_list .item .item_mask {
+    content: "";
+    display: block;
+    opacity: 1;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-bottom: 2px solid #f0f0ee;
+    border-left: 2px solid #f0f0ee;
+    border-radius: 0;
+    background: #fff;
+}
+
+.career_info .item_list .item {
+    height: 150px;
+    width: 100%;
+}
+
+.career_info .item_list .item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.career_info .item_list .item a .top_text {
+    font-size: 15px;
+    border: 3px solid transparent;
+    display: inline-block;
+    padding: 3px 15px;
+    border-radius: 30px;
+    background: #2d8c3c;
+    color: #fff;
+    font-weight: bold;
+}
+
+.career_info .item_list .item a .sub_text {
+    font-size: 13px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* ニュース */
+.news-inner {
+    padding: 40px 20px 70px;
+}
+
+.news-inner .title {
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.news-inner .title h1 {
+    font-size: 25px;
+}
+
+.news-inner .title h2 {
+    font-size: 15px;
+}
+
+.news_item {
+    border-bottom: 2px solid #f0f0ee;
+}
+
+.news_item a {
+    display: block;
+    padding: 25px 15px;
+}
+
+.news_meta {
+    margin-bottom: 10px;
+}
+
+.news_meta .date {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.news_meta .badge {
+    display: inline-block;
+    margin: 0 0 0 1em;
+    padding: 5px 10px;
+    border-radius: 30px;
+    background: #2d8c3c;
+    text-align: center;
+    letter-spacing: normal;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.news_content {
+    font-size: 15px;
+}
+
+.news_footBtn {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.news_footBtn a {
+    border: 3px solid #82be28;
+    border-radius: 50px;
+    padding: 10px 30px;
+    color: #82be28;
+    font-weight: bold;
+}
+
+/* 関連会社 */
+.related_companie {
+    background: rgb(235, 235, 235);
+}
+
+.related_companie-inner {
+    padding: 40px 20px 80px;
+}
+
+.related_companie-inner .title {
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.related_companie-inner .title h1 {
+    font-size: 25px;
+}
+
+.related_companie-inner .title h2 {
+    font-size: 15px;
+}
+
+.companie_list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.companie_item {
+    width: 100%;
+    max-width: 400px;
+}
+
+.companie_item + .companie_item {
+    margin-top: 20px;
+}
+
+.companie_item .image {
+    width: 100%;
+    border-radius: 20px;
+    height: 200px;
+    background: red;
+    opacity: 0.7;
+}
+
+.companie_item .text {
+    text-align: center;
+    padding: 16px 10px 10px;
+}
+
+/* フッター */
+footer {
+    min-height: 0%;
+    background: #000;
+    text-align: center;
+    color: #fff;
+    flex: 1 0 auto;
+}
+
+.footer_logo {
+    padding: 42px 0 0;
+}
+
+.footer_function .row1 {
+    margin-top: 20px;
+}
+
+.footer_service {
+    display: flex;
+    justify-content: center;
+}
+
+.footer_service_item {
+    padding: 0 5px;
+}
+
+.footer_function .row2 {
+    margin-top: 20px;
+}
+
+.footer_nav {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #313130;
+}
+
+.footer_nav_item {
+    border-top: 1px solid #313130;
+    border-left: 1px solid #313130;
+    width: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.footer_nav_item a {
+    display: block;
+    padding: 11px 0;
+}
+
+.footer_copyright {
+    padding: 28px 0;
+    font-size: 8px;
+}
+
+.footer_copyright span {
+    font-size: 10px;
+}
+
+@media (min-width: 768px) {
+
+    /* ヘッダー */
+    header {
+        height: 500px;
+    }
+
+    header .text {
+        margin: 80px 0 50px;
+    }
+
+    header .career_nav {
+        color: #fff;
+        display: block;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .career_nav_content {
+        display: flex;
+        width: 100%;
+    }
+
+    .career_nav_content .colum {
+        /* 要素を伸ばして縮める */
+        flex: 1 1 auto;
+    }
+
+    .career_nav_content .colum:not(:last-child) {
+        margin-right: 50px;
+    }
+
+    .career_nav_content .colum .title {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #fff;
+        font-size: 18px;
+    }
+
+    .career_nav_content .colum a {
+        font-size: 13px;
+        cursor: pointer;
+        transition: color .3s;
+    }
+
+    .career_nav_content .colum a:hover {
+        color: #82be28;
+    }
+
+    .colum1_category {
+        display: flex;
+    }
+
+    .colum1_category li:not(:last-child){
+        margin-right: 40px;
+    }
+
+    .career_info {
+        display: none;
+    }
+
+    /* メニューボタン用モーダル */
+    .menu-overlay{
+        width: 30%;
+    }
+
+    /* メイン */
+
+    /* ニュース */
+    .news-inner{
+        padding-top: 70px;
+    }
+    .news-inner .title h1 {
+        font-size: 40px;
+    }
+
+    .news_item a {
+        display: flex;
+        justify-content: start;
+        position: relative;
+        z-index: 1;
+    }
+
+    .news_item a::before {
+        content: "";
+        display: block;
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: auto;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 0%;
+        transition: opacity 0.55s cubic-bezier(0.23, 1, 0.58, 1), width 0.4s cubic-bezier(0.23, 1, 0.58, 1);
+        background: #f7f7f6;
+    }
+
+    .news_item a:hover::before {
+        opacity: 1;
+        width: 100%;
+    }
+
+    .news_item a:hover .news_content {
+        color: #82be28;
+    }
+
+    .news_item a .news_meta {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .news_item a .news_meta .date {
+        font-size: 15px;
+        width: 160px;
+    }
+
+    .news_item a .news_meta .badge {
+        margin: 0;
+        padding: 2px 20px;
+    }
+
+    .news_item a .news_content {
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .news_footBtn {
+        margin-top: 50px;
+    }
+
+    .news_footBtn a {
+        display: inline-flex;
+        background: #fff;
+        padding: 15px 40px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: background-color 0.1s 0.15s cubic-bezier(0.23, 1, 0.58, 1);
+    }
+
+    .news_footBtn a:hover {
+        color: #fff;
+        background: #82be28;
+        transition: background-color 0s;
+    }
+
+    .news_footBtn a::before {
+        content: "";
+        display: block;
+        background: #fff;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 50px;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.58, 1);
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .news_footBtn a:hover::before {
+        transition: opacity 0.35s cubic-bezier(0.23, 1, 0.58, 1), transform 0.5s cubic-bezier(0.23, 1, 0.58, 1);
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    /* 関連会社 */
+    .related_companie-inner {
+        padding-top: 70px;
+    }
+
+    .related_companie-inner .title {
+        margin-bottom: 60px;
+    }
+
+    .related_companie-inner .title h1 {
+        font-size: 40px;
+    }
+
+    .companie_list {
+        margin: 0 auto;
+        width: 651px;
+        justify-content: flex-start;
+    }
+
+    .companie_item {
+        width: 310px;
+    }
+
+    .companie_item:nth-child(2) {
+        margin-top: 0;
+    }
+
+    .companie_item:nth-child(odd) {
+        margin-right: 30px;
+    }
+
+    .companie_item a .image {
+        transition: all .3s cubic-bezier(0.4, 0, 0, 0.76);;
+    }
+
+    .companie_item a:hover .image {
+        transform: scale(0.8);
+        border-radius: 30px;
+        background: rgb(211, 0, 0);
+    }
+
+    .companie_item a .text {
+        transition: all .2s;
+    }
+
+    .companie_item a:hover .text {
+        color: #82be28;
+    }
+
+}
