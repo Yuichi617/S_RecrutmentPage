@@ -9,15 +9,60 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
     <!-- ヘッダー -->
     <header>
         <!-- ヘッダーナビ -->
         <nav>
+            <!-- スマホ表示 -->
             <span class="material-icons" id="search">search</span>
             <span class="logo">LOGO</span>
             <span class="material-icons" id="menu">menu</span>
+            <!-- PC表示 -->
+            <div class="header_function">
+                <div class="header_nav">
+                    <ul class="header_nav_items">
+                        <li class="header_nav_item"><a href="#">企業</a></li>
+                        <li class="header_nav_item"><a href="#">ニュース</a></li>
+                        <li class="header_nav_item"><a href="#">サービス</a></li>
+                        <li class="header_nav_item"><a href="#">技術・デザイン</a></li>
+                        <li class="header_nav_item"><a href="#">採用</a></li>
+                        <li class="header_nav_item"><a href="#">IR</a></li>
+                        <li class="header_nav_item"><a href="#">沿革</a></li>
+                        <li class="header_nav_item"><a href="#">FEATURES</a></li>
+                    </ul>
+                    <div class="global_nav">
+                        <div class="global_nav_inner">
+                            <div class="global_nav_items">
+                                <div class="global_nav_item">
+                                    <div class="global_nav_headding">
+                                        <a>
+                                            <p>Corporate</p>
+                                            <p>企業</p>
+                                        </a>
+                                    </div>
+                                    <ul class="global_nav_list">
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                        <li class="link_list_item"></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search"></div>
+                <div class="menu"></div>
+            </div>
         </nav>
         <!-- ヘッダーテキスト -->
         <section class="text">
@@ -206,6 +251,8 @@
         </section>
 
     </main>
+    <!-- スクロールボタン -->
+    <div id="js-scroll-fadein" class="js-scroll-fadein arrow"></div>
 
     <!-- フッター -->
     <footer>
@@ -219,28 +266,28 @@
             <div class="row1">
                 <ul class="footer_service">
                     <li class="footer_service_item">
-                        <a href="#">
-                            <span class="material-icons">facebook</span>
+                        <a href="#" class="facebook_icon_badge icon_badge">
+                            <span class="facebook_icon icon"><i class="fab fa-facebook-square"></i></span>
                         </a>
                     </li>
                     <li class="footer_service_item">
-                        <a href="#">
-                            <span class="material-icons">facebook</span>
+                        <a href="#" class="instagram_icon_badge icon_badge">
+                            <span class="instagram_icon icon"><i class="fab fa-instagram"></i></span>
                         </a>
                     </li>
                     <li class="footer_service_item">
-                        <a href="#">
-                            <span class="material-icons">facebook</span>
+                        <a href="#" class="twitter_icon_badge icon_badge">
+                            <span class="twitter_icon icon"><i class="fab fa-twitter"></i></span>
                         </a>
                     </li>
                     <li class="footer_service_item">
-                        <a href="#">
-                            <span class="material-icons">facebook</span>
+                        <a href="#" class="mail_icon_badge icon_badge">
+                            <span class="mail_icon icon"><i class="fas fa-envelope"></i></span>
                         </a>
                     </li>
                     <li class="footer_service_item">
-                        <a href="#">
-                            <span class="material-icons">facebook</span>
+                        <a href="#" class="youtube_icon_badge icon_badge">
+                            <span class="youtube_icon icon"><i class="fab fa-youtube"></i></span>
                         </a>
                     </li>
                 </ul>
@@ -274,6 +321,7 @@
     
     <script src="js/search.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/scroll.js"></script>
 </body>
 
 </html>
