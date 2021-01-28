@@ -829,7 +829,9 @@ footer {
         justify-content: space-between;
         align-items: center;
         position: relative;
+        z-index: 100;
     }
+
     header nav #search{
         display: none;
         pointer-events: none;
@@ -881,15 +883,14 @@ footer {
     .global_nav .global_nav_inner {
         position: relative;
         border-radius: 0 0 30px 30px;
-        height: 0;
         background: #fff;
-        height:400px;
+        transition: height 0.3s;
+        height: 0px;/*ホバーした項目に合わせて高さを調整*/
     }
 
     .global_nav .global_nav_inner::before {
         content: "";
         display: block;
-        opacity: 1;
         position: absolute;
         top: 0px;
         right: 16px;
@@ -898,19 +899,86 @@ footer {
         margin: auto;
         border-radius: 4px;
         height: 4px;
-        /* transition: opacity 0.2s 0s cubic-bezier(0.23, 1, 0.58, 1); */
         background-color: #000;
+        transition: opacity 0.2s 0s cubic-bezier(0.23, 1, 0.58, 1);
+        opacity: 0;
+    }
+
+    .global_nav .global_nav_inner.active::before {
+        transition: opacity 0.2s 0s cubic-bezier(0.23, 1, 0.58, 1);
+        opacity: 1;
     }
 
     .global_nav_item {
+        visibility: hidden;
         position: absolute;
-        top: 100px;
+        top: 80px;
         right: 16px;
         left: 16px;
         margin: 0 auto;
         padding: 0 68px;
     }
 
+    .global_nav_headding {
+        margin: 0 0 34px;
+        text-align: center;
+    }
+
+    .global_nav_headding a {
+        display: inline-block;
+    }
+
+    .global_nav_title {
+        font-size: 40px;
+        line-height: 1;
+    }
+
+    .global_nav_title_small {
+        margin-top: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .global_nav_list {
+        display: flex;
+        margin: 0 -20px;
+        flex: 1;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .link_list_item {
+        font-size: 16px;
+        margin: 0 20px;
+        width: calc(33.333% - 40px);
+        border-bottom: 2px solid #f0f0ee;
+        line-height: 1.6;
+    }
+
+    .link_list_item a {
+        display: inline-block;
+        padding: 26px 40px 26px 10px;
+        font-weight: bold;
+    }
+
+    .nav_wrap {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+        z-index: 5;
+    }
+
+    .nav_wrap.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
 
 
 }

@@ -1,3 +1,5 @@
+'use strict'
+
 //スクロール量を取得する関数
 function getScrolled() {
     return ( window.pageYOffset !== undefined ) ? window.pageYOffset: document.documentElement.scrollTop;
