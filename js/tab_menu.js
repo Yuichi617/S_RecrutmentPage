@@ -12,7 +12,7 @@
         nav_wrap.classList.add('show');
         header_nav.classList.add('active');
         // header_nav.style.borderRadius = "50px 50px 0 0"
-        global_nav_inner.style.height = "450px";
+        global_nav_inner.style.height = "470px";
 
         // コンテントの表示
         const open_content = document.getElementById(this.dataset.id);

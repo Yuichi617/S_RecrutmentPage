@@ -830,10 +830,12 @@ footer {
         align-items: center;
         position: relative;
         z-index: 100;
+        transition: border-radius .3s .1s;
     }
 
     header nav.active {
         border-radius: 50px 50px 0 0;
+        transition: border-radius .1s ;
     }
 
     header nav #search{
@@ -866,6 +868,15 @@ footer {
         font-weight: bold;
     }
 
+    .header_nav_item {
+        color: black;
+        transition: color .3s;
+    }
+
+    .header_nav_item:hover {
+        color: #82be28;
+    }
+
     .header_function .search {
         height: 45px;
         width: 45px;
@@ -888,7 +899,8 @@ footer {
         position: relative;
         border-radius: 0 0 30px 30px;
         background: #fff;
-        transition: height 0.3s;
+        transform: translateY(-20px);
+        transition: height .3s;
         height: 0px;/*ホバーした項目に合わせて高さを調整*/
     }
 
@@ -896,7 +908,7 @@ footer {
         content: "";
         display: block;
         position: absolute;
-        top: 0px;
+        top: 20px;
         right: 16px;
         bottom: auto;
         left: 16px;
@@ -922,12 +934,15 @@ footer {
         margin: 0 auto;
         padding: 0 68px;
         transform: translateY(-20px);
-        transition: transform .6s, visibility .3s;
+        opacity: 0;
+        transition: transform 0s, visibility 0s, opacity 0s;
     }
 
     .global_nav_item.show {
         visibility: visible;
         transform: translateY(0px);
+        opacity: 1;
+        transition: transform .6s .1s, visibility .5s .2s, opacity .3s .2s;
     }
 
     .global_nav_headding {
