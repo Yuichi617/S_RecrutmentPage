@@ -832,6 +832,10 @@ footer {
         z-index: 100;
     }
 
+    header nav.active {
+        border-radius: 50px 50px 0 0;
+    }
+
     header nav #search{
         display: none;
         pointer-events: none;
@@ -917,6 +921,13 @@ footer {
         left: 16px;
         margin: 0 auto;
         padding: 0 68px;
+        transform: translateY(-20px);
+        transition: transform .6s, visibility .3s;
+    }
+
+    .global_nav_item.show {
+        visibility: visible;
+        transform: translateY(0px);
     }
 
     .global_nav_headding {

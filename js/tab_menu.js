@@ -10,12 +10,14 @@
         // ウィンドウのオープン
         global_nav_inner.classList.add('active');
         nav_wrap.classList.add('show');
-        header_nav.style.borderRadius = "50px 50px 0 0"
+        header_nav.classList.add('active');
+        // header_nav.style.borderRadius = "50px 50px 0 0"
         global_nav_inner.style.height = "450px";
 
         // コンテントの表示
         const open_content = document.getElementById(this.dataset.id);
-        open_content.style.visibility = "visible";
+        // open_content.style.visibility = "visible";
+        open_content.classList.add('show');
 
     }
 
@@ -23,12 +25,14 @@
         // ウィンドウのクローズ
         global_nav_inner.classList.remove('active');
         nav_wrap.classList.remove('show');
-        header_nav.style.borderRadius = "50px"
+        header_nav.classList.remove('active');
+        // header_nav.style.borderRadius = "50px";
         global_nav_inner.style.height = "0";
 
         //コンテントのクローズ
         const close_content = document.getElementById(this.dataset.id);
-        close_content.style.visibility = "hidden";
+        // close_content.style.visibility = "hidden";
+        close_content.classList.remove('show');
 
     }
 
